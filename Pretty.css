@@ -1,12 +1,22 @@
-body {
+html, body {
     display: block;
     justify-content: center;
-    background-color: #bb0011;
+    background-color: #0077ee;
+    background: linear-gradient(225deg, #0077ee 17%, #0055bb 22%, #bb0011 71%, #ff0000 79%);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-width: 100%;
+    height: 100%;
+    margin: 0;
 }
 
 header {
     display:flex;
-    background-color: #FF0000;
+    background-color: #d30000;
     justify-content: center;
     height: 100px;
     width: 100%;
@@ -51,19 +61,32 @@ h1 {
 }
 
 img {
+    border-style: solid;
+    border-color: #ffd900;
+    border-width: 10px;
+}
+
+#pokemon-img {
+   
     border-radius: 10px;
     margin-bottom: -35px;
+    width: auto;
+    height: auto;
+    max-width: 400px;
+    max-height: 300px;
 }
 
 #current-word {
+    color: #ffd900;
     font-size: 30pt;
     font-weight: bolder;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
 }
 
 .form-control {
-    width: 300px;
+    width: 400px;
     height: 30px;
+    margin-bottom: 5px;
 }
 
 .row {
@@ -71,9 +94,8 @@ img {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
+    margin-top: -20px;
 }
-
-
 
 .col2 {
     margin: 0 50px 0;    
@@ -81,5 +103,16 @@ img {
 
 .instructions {
     width: 500px;
+    margin-top: -30px;
+    margin-bottom: 20px;
+}
+
+.instructions h5{
+    margin-bottom: -12px;
+}
+
+#message {
+    font-size: 18pt;
+    margin-top: 2px;
     margin-bottom: 20px;
 }
