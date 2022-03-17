@@ -1,18 +1,22 @@
 html, body {
     display: block;
     justify-content: center;
-    background-color: #0077ee;
-    background: linear-gradient(225deg, #0077ee 17%, #0055bb 22%, #bb0011 71%, #ff0000 79%);
+    background-image: url("Pokemon\ Gen\ 1\ Colour\ Wheel.jpg"),
+        linear-gradient(225deg, #0077ee 17%, #0055bb 22%, #bb0011 71%, #ff0000 79%);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-position: top center;
     min-width: 100%;
     height: 100%;
     margin: 0;
 }
+
+
 
 header {
     display:flex;
@@ -22,6 +26,7 @@ header {
     width: 100%;
     margin: 0%;
     border-radius: 0 0 10px 10px;
+    box-shadow: -10px 5px 15px #010a387c;
 }
 
 h1 {
@@ -46,11 +51,11 @@ h1 {
     border-style: solid;
     border-width: 40px;
     border-radius: 10px;
-    margin-top: 15px;
+    margin-top: 50px;
+    box-shadow: -10px 5px 15px #010a387c;
 }
 
 .lead {
-    
     font-weight: bolder;
     font-size: 18pt;
 }
