@@ -1,7 +1,7 @@
 window.addEventListener('load', init);
 window.onload=function(){
   document.getElementById("pkm-cries").play();
-  volume = 0;
+  audio.volume = 0;
 };
 
 // Globals
