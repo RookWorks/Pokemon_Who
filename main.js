@@ -1,4 +1,8 @@
 window.addEventListener('load', init);
+window.onload=function(){
+  document.getElementById("pkm-cries").play();
+  volume = 0;
+};
 
 // Globals
 
@@ -20,6 +24,7 @@ let isPlaying;
 const wordInput = document.querySelector('#word-input');
 const wordImage = document.querySelector('#pokemon-img');
 const currentWord = document.querySelector('#current-word');
+const sounds = document.querySelector('#pkm-cries');
 const scoreDisplay = document.querySelector('#score');
 const timeDisplay = document.querySelector('#time');
 const message = document.querySelector('#message');
@@ -116,7 +121,7 @@ const words = [
   "dodrio",
   "seel",
   "dewgong",
-  "drimer",
+  "grimer",
   "muk",
   "shellder",
   "cloyster",
@@ -336,6 +341,160 @@ const words_image = [
   "https://img.pokemondb.net/artwork/large/mew.jpg"
 ];
 
+const cries = [
+  "https://play.pokemonshowdown.com/audio/cries/bulbasaur.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/ivysaur.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/venusaur.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/charmander.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/charmeleon.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/charizard.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/squirtle.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/wartortle.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/blastoise.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/caterpie.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/metapod.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/butterfree.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/weedle.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/kakuna.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/beedrill.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/pidgey.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/pidgeotto.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/pidgeot.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/rattata.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/raticate.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/spearow.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/fearow.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/ekans.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/arbok.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/pikachu.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/raichu.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/sandshrew.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/sandslash.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/nidoranf.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/nidorina.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/nidoqueen.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/nidoran.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/nidorino.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/nidoking.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/clefairy.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/clefable.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/vulpix.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/ninetales.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/jigglytuff.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/wigglytuff.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/zubat.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/golbat.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/oddish.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/gloom.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/vileplume.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/paras.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/parasect.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/venonat.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/venomoth.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/diglett.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/dugtrio.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/meowth.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/persian.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/psyduck.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/golduck.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/mankey.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/primeape.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/growlithe.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/arcanine.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/poliwag.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/poliwhirl.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/poliwrath.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/abra.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/kadabra.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/alakazam.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/machop.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/machoke.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/machamp.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/bellsprout.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/victreebel.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/tentacool.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/tentacruel.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/geodude.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/graveler.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/golem.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/ponyta.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/ponyta.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/rapidash.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/slowpoke.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/slowbro.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/magnemite.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/magneton.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/farfetchd.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/doduo.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/dodrio.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/seel.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/dewgong.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/grimer.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/muk.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/sheller.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/cloyster.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/gastly.mp3",     
+  "https://play.pokemonshowdown.com/audio/cries/haunter.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/gengar.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/onix.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/drowzee.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/hypno.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/krabby.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/kingler.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/voltorb.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/electrod.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/exeggcute.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/exeggutor.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/cubone.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/marowak.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/hitmonlee.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/hitmonchan.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/lickitung.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/koffing.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/weezing.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/rhyhorn.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/rhydon.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/chansey.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/tangela.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/kangaskhan.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/horsea.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/seadra.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/goldeen.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/seaking.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/staryu.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/starmie.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/mrmime.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/scyther.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/jynx.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/electabuzz.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/magmar.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/pinsir.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/tauros.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/magikarp.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/gyarados.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/lapras.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/ditto.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/eevee.ogg",
+  "https://play.pokemonshowdown.com/audio/cries/vaporeon.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/jolteon.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/flareon.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/porygon.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/omanyte.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/omastar.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/kabuto.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/kabutops.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/aerodactyl.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/snorlax.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/articuno.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/zapdos.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/moltres.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/dratini.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/dragonair.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/dragonite.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/mewtwo.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/mew.mp3"
+];
+
 // Initialize Game
 function init() {
   
@@ -400,8 +559,8 @@ function showWord(words) {
   // Output random word
   currentWord.innerHTML = words[randIndex];
   wordImage.src = words_image[randIndex];
+  sounds.src = cries[randIndex];
 }
-
 
 // Countdown timer
 function countdown() {
