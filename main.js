@@ -1,7 +1,7 @@
 window.addEventListener('load', init);
 window.onload=function(){
   document.getElementById("pkm-cries").play();
-  audio.volume = 0;
+  sounds.volume = 0.3;
 };
 
 // Globals
@@ -366,7 +366,7 @@ const cries = [
   "https://play.pokemonshowdown.com/audio/cries/fearow.mp3",
   "https://play.pokemonshowdown.com/audio/cries/ekans.mp3",
   "https://play.pokemonshowdown.com/audio/cries/arbok.mp3",
-  "https://play.pokemonshowdown.com/audio/cries/pikachu.mp3",
+  "https://www.youtube.com/watch?v=cLb27CGNH3A",
   "https://play.pokemonshowdown.com/audio/cries/raichu.mp3",
   "https://play.pokemonshowdown.com/audio/cries/sandshrew.mp3",
   "https://play.pokemonshowdown.com/audio/cries/sandslash.mp3",
@@ -380,7 +380,7 @@ const cries = [
   "https://play.pokemonshowdown.com/audio/cries/clefable.mp3",
   "https://play.pokemonshowdown.com/audio/cries/vulpix.mp3",
   "https://play.pokemonshowdown.com/audio/cries/ninetales.mp3",
-  "https://play.pokemonshowdown.com/audio/cries/jigglytuff.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/jigglytuff.ogg",
   "https://play.pokemonshowdown.com/audio/cries/wigglytuff.mp3",
   "https://play.pokemonshowdown.com/audio/cries/zubat.mp3",
   "https://play.pokemonshowdown.com/audio/cries/golbat.mp3",
@@ -442,7 +442,7 @@ const cries = [
   "https://play.pokemonshowdown.com/audio/cries/krabby.mp3",
   "https://play.pokemonshowdown.com/audio/cries/kingler.mp3",
   "https://play.pokemonshowdown.com/audio/cries/voltorb.mp3",
-  "https://play.pokemonshowdown.com/audio/cries/electrod.mp3",
+  "https://play.pokemonshowdown.com/audio/cries/electrode.ogg",
   "https://play.pokemonshowdown.com/audio/cries/exeggcute.mp3",
   "https://play.pokemonshowdown.com/audio/cries/exeggutor.mp3",
   "https://play.pokemonshowdown.com/audio/cries/cubone.mp3",
