@@ -19,7 +19,7 @@ html, body {
 
 
 header {
-    display:flex;
+    display: flex;
     background-color: #d30000;
     justify-content: center;
     height: 100px;
@@ -38,15 +38,18 @@ h1 {
 }
 
 .container {
-    display: flex;
-    justify-self: center;
+    display: block;
+    /* position: fixed; */
+    margin: auto;
+    /* left: 50%; */
+    /* justify-self: center; */
     justify-content: center;
     background-color: #0055BB;
     color: aliceblue;
     font-family: 'Jura', sans-serif;
     text-align: center;
     width: 1000px;
-    transform: translate(38%);
+    /* transform: translate(38%); */
     border-color: #0077EE;
     border-style: solid;
     border-width: 40px;
